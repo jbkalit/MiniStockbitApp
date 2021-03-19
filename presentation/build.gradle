@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
 }
 
@@ -8,13 +8,13 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.jbkalit.ministockbitapp"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -33,9 +33,7 @@ android {
 }
 
 dependencies {
-    implementation project(':data')
     implementation project(':domain')
-    implementation project(':presentation')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.ext.kotlinVersion}"
     implementation "androidx.core:core-ktx:${rootProject.ext.androidCoreKtxVersion}"
@@ -51,5 +49,4 @@ dependencies {
     testImplementation "junit:junit:${rootProject.ext.jUnitVersion}"
     androidTestImplementation "androidx.test.ext:junit:${rootProject.ext.testJunit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${rootProject.ext.espressoVersion}"
-
 }
