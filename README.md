@@ -1,1 +1,1 @@
-"# MiniStockbitApp" 
+#MiniStockbitApp
