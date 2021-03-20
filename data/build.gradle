@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'kotlin'
 }
+apply from: "$rootDir/dependencies.gradle"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7
@@ -9,10 +10,14 @@ java {
 }
 
 dependencies {
+    // module
     implementation project(':domain')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation libs.kotlin_stdlib
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.ext.coroutineVersion}"
-    implementation "org.koin:koin-androidx-viewmodel:${rootProject.ext.koinVersion}"
+    // koin
+    implementation libs.koin_architecture
+
+    // coroutine
+    implementation libs.coroutine
 }
