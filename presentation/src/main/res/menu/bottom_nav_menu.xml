@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/watchlist"
+        android:id="@+id/watchListFragment"
         android:icon="@android:drawable/ic_menu_agenda"
-        android:title="Watchlist" />
+        android:title="@string/watchlist" />
     <item
-        android:id="@+id/datafeed"
+        android:id="@+id/dataFeedFragment"
         android:icon="@android:drawable/ic_menu_recent_history"
-        android:title="Data Feed" />
+        android:title="@string/datafeed" />
 </menu>

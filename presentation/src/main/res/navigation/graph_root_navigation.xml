@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_root_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.jbkalit.presentation.features.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/watchListFragment"
+        android:name="com.jbkalit.presentation.features.watchlist.WatchlistFragment"
+        android:label="Watch List"
+        tools:layout="@layout/fragment_watchlist" />
+    <fragment
+        android:id="@+id/dataFeedFragment"
+        android:name="com.jbkalit.presentation.features.datafeed.DatafeedFragment"
+        android:label="Data Feed"
+        tools:layout="@layout/fragment_datafeed" />
+
+</navigation>
