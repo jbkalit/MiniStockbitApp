@@ -2,24 +2,27 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
+apply from: "$rootDir/dependencies.gradle"
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion compile_sdk
+    buildToolsVersion build_tools
 
     defaultConfig {
         applicationId "com.jbkalit.ministockbitapp"
-        minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion min_sdk
+        targetSdkVersion compile_sdk
+        versionCode version_code
+        versionName version_name
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
+
+   }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -30,26 +33,29 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    packagingOptions {
+        pickFirst("META-INF/scarlet-core.kotlin_module")
+        pickFirst("META-INF/scarlet-core-internal.kotlin_module")
+    }
 }
 
 dependencies {
+    // modules
     implementation project(':data')
     implementation project(':domain')
     implementation project(':presentation')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.ext.kotlinVersion}"
-    implementation "androidx.core:core-ktx:${rootProject.ext.androidCoreKtxVersion}"
-    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
-    implementation "com.google.android.material:material:${rootProject.ext.androidMaterialVersion}"
-    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintLayoutVersion}"
-    implementation "androidx.recyclerview:recyclerview:${rootProject.ext.recyclerViewVersion}"
-    implementation "androidx.legacy:legacy-support-v4:${rootProject.ext.legacySupportVersion}"
+    // okhttp3
+    implementation libs.okhttp_logging
+    implementation libs.okhttp
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.ext.coroutineVersion}"
-    implementation "org.koin:koin-androidx-viewmodel:${rootProject.ext.koinVersion}"
+    // koin
+    implementation libs.koin_architecture
 
-    testImplementation "junit:junit:${rootProject.ext.jUnitVersion}"
-    androidTestImplementation "androidx.test.ext:junit:${rootProject.ext.testJunit}"
-    androidTestImplementation "androidx.test.espresso:espresso-core:${rootProject.ext.espressoVersion}"
+    // coroutine
+    implementation libs.coroutine
+
+    // gson
+    implementation libs.gson
 
 }

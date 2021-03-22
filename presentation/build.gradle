@@ -1,17 +1,19 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
+apply from: "$rootDir/dependencies.gradle"
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion compile_sdk
+    buildToolsVersion build_tools
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion min_sdk
+        targetSdkVersion compile_sdk
+        versionCode version_code
+        versionName version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -27,26 +29,44 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
     kotlinOptions {
         jvmTarget = '1.8'
     }
 }
 
 dependencies {
+    // modules
+    implementation project(':data')
     implementation project(':domain')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.ext.kotlinVersion}"
-    implementation "androidx.core:core-ktx:${rootProject.ext.androidCoreKtxVersion}"
-    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
-    implementation "com.google.android.material:material:${rootProject.ext.androidMaterialVersion}"
-    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintLayoutVersion}"
-    implementation "androidx.recyclerview:recyclerview:${rootProject.ext.recyclerViewVersion}"
-    implementation "androidx.legacy:legacy-support-v4:${rootProject.ext.legacySupportVersion}"
+    implementation libs.kotlin_script
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.ext.coroutineVersion}"
-    implementation "org.koin:koin-androidx-viewmodel:${rootProject.ext.koinVersion}"
+    // android supports
+    implementation libs.android_material
+    implementation libs.androidx_constraint
 
-    testImplementation "junit:junit:${rootProject.ext.jUnitVersion}"
-    androidTestImplementation "androidx.test.ext:junit:${rootProject.ext.testJunit}"
-    androidTestImplementation "androidx.test.espresso:espresso-core:${rootProject.ext.espressoVersion}"
+    // architecture components
+    implementation libs.androidx_appcompat
+    implementation libs.androidx_legacy
+    implementation libs.androidx_recyclerview
+    implementation libs.androidx_swipeRefresh
+
+    // lifecycle
+    implementation libs.androidx_extension
+    implementation libs.androidx_livedata
+    implementation libs.androidx_viewmodel
+
+    // koin
+    implementation libs.koin_architecture
+
+    // coroutine
+    implementation libs.coroutine
+
+    // navigation
+    implementation libs.navigation_fragment
+    implementation libs.navigation_ui
+
 }
