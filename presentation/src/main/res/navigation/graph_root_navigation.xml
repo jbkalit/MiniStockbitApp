@@ -9,16 +9,40 @@
         android:id="@+id/loginFragment"
         android:name="com.jbkalit.presentation.features.login.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_watchListFragment"
+            app:destination="@id/watchListFragment"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/watchListFragment"
         android:name="com.jbkalit.presentation.features.watchlist.WatchlistFragment"
         android:label="Watch List"
-        tools:layout="@layout/fragment_watchlist" />
+        tools:layout="@layout/fragment_watchlist" >
+        <action
+            android:id="@+id/action_watchListFragment_to_loginFragment"
+            app:destination="@id/dataFeedFragment"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/watchListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/dataFeedFragment"
         android:name="com.jbkalit.presentation.features.datafeed.DatafeedFragment"
         android:label="Data Feed"
-        tools:layout="@layout/fragment_datafeed" />
+        tools:layout="@layout/fragment_datafeed" >
+        <action
+            android:id="@+id/action_watchListFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/dataFeedFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

@@ -14,13 +14,15 @@ android {
         targetSdkVersion compile_sdk
         versionCode version_code
         versionName version_name
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
+
+   }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -30,6 +32,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    packagingOptions {
+        pickFirst("META-INF/scarlet-core.kotlin_module")
+        pickFirst("META-INF/scarlet-core-internal.kotlin_module")
     }
 }
 

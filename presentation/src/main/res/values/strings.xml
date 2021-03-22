@@ -2,8 +2,8 @@
 
     <string name="app_name">MiniStockbitApp</string>
 
-    <string name="code_stock">TSLA</string>
-    <string name="company_name">Tesla Motor</string>
+    <string name="code_stock">BNB</string>
+    <string name="company_name">Binance</string>
     <string name="price">4,000</string>
     <string name="percentage">+100(+1.23%)</string>
 
@@ -24,7 +24,13 @@
     <string name="login_with_fingerprint">Masuk dengan Fingerprint</string>
     <string name="sign_up_now">Belum Punya akun ? <font color='#4ca762'>Daftar sekarang</font></string>
 
-    <string name="watchlist">WatchList</string>
+    <string name="watchlist">Watchlist</string>
     <string name="datafeed">Data Feed</string>
+
+    <string name="changes_info">%1$s (%2$s%%)</string>
+
+    <string name="generic_error">Something went wrong.</string>
+    <string name="no_internet">%1$s Tarik kebawah untuk mencoba lagi</string>
+    <string name="no_results">Tidak ada data ditemukan</string>
 
 </resources>

@@ -2,9 +2,9 @@
  * Please keep them organized in alphabetic order. */
 
 ext {
-    build_tools = "30.0.3"
+    build_tools = "30.0.0"
     compile_sdk = 30
-    min_sdk = 16
+    min_sdk = 19
     target_sdk = 30
     version_code = 1
     version_name = "1.0"
@@ -36,7 +36,8 @@ ext {
             runner            : '1.1.0',
             swipe_refresh     : '1.1.0',
             junit             : '5.6.2',
-            test_junit_etx    : '1.1.2'
+            test_junit_etx    : '1.1.2',
+            scarlet           : '0.1.9'
     ]
 
     module = [
@@ -90,5 +91,10 @@ ext {
             okhttp_logging         : [group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: versions.okhttp],
             retrofit               : [group: 'com.squareup.retrofit2', name: 'retrofit', version: versions.retrofit],
             retrofit_gson          : [group: 'com.squareup.retrofit2', name: 'converter-gson', version: versions.retrofit],
+            scarlet                : [group: 'com.tinder.scarlet', name: 'scarlet', version: versions.scarlet],
+            websocket              : [group: 'com.tinder.scarlet', name: 'websocket-okhttp', version: versions.scarlet],
+            streamAdapter          : [group: 'com.tinder.scarlet', name: 'stream-adapter-coroutines', version: versions.scarlet],
+            messageAdapter         : [group: 'com.tinder.scarlet', name: 'message-adapter-gson', version: versions.scarlet],
+            lifecycle              : [group: 'com.tinder.scarlet', name: 'lifecycle-android', version: versions.scarlet]
     ]
 }
