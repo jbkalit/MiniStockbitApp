@@ -11,7 +11,6 @@ A Simple Android Mobile Application which has been implemented using Clean Archi
 - MVVM Pattern
 - Coroutines
 - LiveData
-- Espresso
 - Mockk
 - Koin
 
